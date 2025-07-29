@@ -30,6 +30,7 @@ http://localhost:8080/users/{username}/repositories
 Where **{username}** is a name of a user that we want to pull repositories
 
 **For example:** http://localhost:8080/users/MichciuHello/repositories
+
 **Success action view**
 ```
 [
