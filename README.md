@@ -1,7 +1,10 @@
 # GitHub non fork repositories with branches
 
 ## Introduction
-This is recruitment project where goal was to write an API that connects with GitHub API to pull all repositories of the indicated user, filter all non fork repositories and pull every repository branch with it's name and last commit SHU.
+This is a recruitment project. The goal was to build a REST API that connects with the GitHub API to:
+- fetch all public repositories of a given user,
+- filter out forked repositories,
+- and return all branches for each repository, including branch name and last commit SHA.
 
 ## Tecnology used
 - Java 21
@@ -9,12 +12,12 @@ This is recruitment project where goal was to write an API that connects with Gi
 - Maven
 
 ## Project Structure
-- Main Application Class: GitHubNonForksRecruitmentApplication.java
-- Controller: Contains endpoint for handling HTTP requests (GitHubDataController.java)
-- Service Layer: Contains business logic (GitHubDataService.java, GitHubDataServiceImpl.java)
-- Model: Contains data models (UserRepository.java, Owner.java, ReposBranches.java, Commit.java, UserRepositoryDto.java)
-- Exception Handling: Custom exceptions and exception handler (GlobalExceptionHandler.java, ResponseNotFoundException.java)
-- Intergration Test: Test case for whole process from Controller throug Service Leyer to Response (GitHubReposTests.java).
+- **Main Application**: GitHubNonForksRecruitmentApplication.java
+- **Controller**: Exposes the REST endpoint (GitHubDataController.java)
+- **Service Layer**: Contains business logic (GitHubDataService.java, GitHubDataServiceImpl.java)
+- **Model / DTO**: Data structures used for API responses (UserRepository.java, Owner.java, ReposBranches.java, Commit.java, UserRepositoryDto.java)
+- **Exception Handling**: Custom exception and global handler (GlobalExceptionHandler.java, ResponseNotFoundException.java)
+- **Intergration Test**: End-to-end test covering the full flow from controller to GitHub API (GitHubReposTests.java).
 
 ## Running the Application
 - Clone the repository.
@@ -26,7 +29,8 @@ http://localhost:8080/users/{username}/repositories
 
 Where **{username}** is a name of a user that we want to pull repositories
 
-**Success action view:**
+**For example:** http://localhost:8080/users/MichciuHello/repositories
+**Success action view**
 ```
 [
     {
@@ -46,7 +50,7 @@ Where **{username}** is a name of a user that we want to pull repositories
 ]
 ```
 
-**Exception handling:**
+**Error Response (e.g. user does not exist)**
 ```
 {
     "message": "404 Not Found on GET request,
